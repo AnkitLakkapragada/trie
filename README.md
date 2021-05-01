@@ -104,11 +104,9 @@ public void findFromFragment(TrieNode parent, String fragment) {
 		for (int i = 0; i < fragment.length(); i++) {
 			Character c = fragment.charAt(i);
 			boolean root_found = false;
-			boolean check_case = true;
 			for (@SuppressWarnings("rawtypes") Map.Entry entry : parent.childs.entrySet()) {
 				TrieNode temp = (TrieNode) entry.getValue();
 				if (temp.character != c) {
-					check_case = true;
 				}
 				else {
 					node = temp;
@@ -117,7 +115,7 @@ public void findFromFragment(TrieNode parent, String fragment) {
 				}
 			}
 
-			if (!root_found && check_case) {
+			if (!root_found) {
 				System.out.println("No autocomplete suggestions!");
 				return;
 			}
